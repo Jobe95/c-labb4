@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:Labb4"
+             mc:Ignorable="d" x:Class="Labb4.MainPage">
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Previous" Command="{Binding PreviousCountryCommand}"/>
+        <ToolbarItem Text="Next" Command="{Binding NextCountryCommand}"/>
+    </ContentPage.ToolbarItems>
+        <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Spacing="25"
+                 Padding="40"
+                 >
+            <Image Source="{Binding CurrentCountry.Picture}"
+               HeightRequest="130"
+               Aspect="AspectFit"
+               />
+            <Label Text="{Binding CurrentCountry.Name, StringFormat='Country: {0}'}"
+               HorizontalOptions="Center"
+               />
+            <Label Text="{Binding CurrentCountry.Currency, StringFormat='Currency: {0}'}"
+               HorizontalOptions="Center"
+               />
+            <Label Text="{Binding CurrentCountry.Population, StringFormat='Population: {0}'}"
+               HorizontalOptions="Center"
+               />
+            <Label Text="{Binding CurrentCountry.Description}"/>
+        </StackLayout>
+</ContentPage>
